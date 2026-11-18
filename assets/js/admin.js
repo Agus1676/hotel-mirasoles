@@ -298,51 +298,51 @@ function renderRoomsAdminList(rooms) {
   container.innerHTML = '';
   rooms.forEach((room, idx) => {
     const card = document.createElement('div');
-    card.className = 'bg-white p-5 rounded-2xl border border-gray-200 shadow-sm space-y-4';
+    card.className = 'bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4';
     card.innerHTML = `
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-gray-100 pb-3">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-stone-100 pb-3">
         <div>
-          <span class="inline-block text-xs font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800 mb-1">Capacidad: ${room.capacity} personas (${room.category})</span>
-          <h4 class="text-lg font-serif font-bold text-mirasoles-navy">${room.name}</h4>
+          <span class="inline-block text-[10px] tracking-wider uppercase font-semibold text-mirasoles-gold mb-1">Capacidad: ${room.capacity} personas (${room.category})</span>
+          <h4 class="text-xl font-serif font-light text-mirasoles-navy">${room.name}</h4>
         </div>
         <div class="flex items-center gap-2">
-          <button type="button" class="btn-save-room px-3 py-1.5 text-xs font-medium rounded-lg bg-mirasoles-navy text-white hover:bg-mirasoles-navy-dark transition">Guardar cambios</button>
+          <button type="button" class="btn-save-room px-4 py-1.5 text-xs font-medium rounded-full bg-mirasoles-navy text-white hover:bg-mirasoles-navy-light transition">Guardar cambios</button>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label class="block text-xs font-semibold text-gray-700 mb-1">Nombre de Habitación</label>
-          <input type="text" class="room-name-input w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent" value="${room.name}">
+          <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Nombre</label>
+          <input type="text" class="room-name-input w-full px-3 py-2 text-xs border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold" value="${room.name}">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-gray-700 mb-1">Tarifa Referencia</label>
-          <input type="text" class="room-price-input w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent" value="${room.priceFrom || ''}">
+          <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Tarifa Referencia</label>
+          <input type="text" class="room-price-input w-full px-3 py-2 text-xs border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold" value="${room.priceFrom || ''}">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-gray-700 mb-1">Capacidad (Pasajeros)</label>
-          <input type="number" min="1" max="10" class="room-cap-input w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent" value="${room.capacity}">
+          <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Capacidad</label>
+          <input type="number" min="1" max="10" class="room-cap-input w-full px-3 py-2 text-xs border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold" value="${room.capacity}">
         </div>
       </div>
 
       <div>
-        <label class="block text-xs font-semibold text-gray-700 mb-1">Configuración de Camas / Sommiers</label>
-        <input type="text" class="room-beds-input w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent" value="${room.bedConfig}">
+        <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Camas / Sommiers</label>
+        <input type="text" class="room-beds-input w-full px-3 py-2 text-xs border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold" value="${room.bedConfig}">
       </div>
 
       <div>
-        <label class="block text-xs font-semibold text-gray-700 mb-1">Descripción</label>
-        <textarea rows="2" class="room-desc-input w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent">${room.description}</textarea>
+        <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Descripción</label>
+        <textarea rows="2" class="room-desc-input w-full px-3 py-2 text-xs border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold">${room.description}</textarea>
       </div>
 
       <div>
-        <label class="block text-xs font-semibold text-gray-700 mb-1">URLs de Fotos (separadas por salto de línea)</label>
-        <textarea rows="3" class="room-imgs-input w-full font-mono text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent">${(room.images || []).join('\n')}</textarea>
+        <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Fotos (URLs separadas por salto de línea)</label>
+        <textarea rows="3" class="room-imgs-input w-full font-mono text-[11px] px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold">${(room.images || []).join('\n')}</textarea>
       </div>
 
       <div>
-        <label class="block text-xs font-semibold text-gray-700 mb-1">Amenidades (separadas por coma o salto de línea)</label>
-        <textarea rows="2" class="room-amenities-input w-full text-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-mirasoles-gold focus:border-transparent">${(room.amenities || []).join('\n')}</textarea>
+        <label class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-1">Amenidades (una por línea)</label>
+        <textarea rows="2" class="room-amenities-input w-full text-xs px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-mirasoles-gold">${(room.amenities || []).join('\n')}</textarea>
       </div>
     `;
 
