@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/habitaciones", "destination": "/habitaciones.html" },
+    { "source": "/servicios", "destination": "/servicios.html" },
+    { "source": "/reservas", "destination": "/reservas.html" },
+    { "source": "/admin", "destination": "/admin.html" }
+  ]
+}

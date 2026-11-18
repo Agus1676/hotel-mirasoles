@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel CMS · Hotel Mirasoles (Necochea)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%22><text y=%2226%22 font-size=%2224%22>🌻</text></svg>">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'mirasoles-canvas': '#FAF8F5',
+            'mirasoles-sand': '#F4EFEA',
+            'mirasoles-gold': '#C99738',
+            'mirasoles-gold-light': '#DDAA44',
+            'mirasoles-gold-dark': '#A47723',
+            'mirasoles-navy': '#1B2A4A',
+            'mirasoles-navy-light': '#2A3F6D',
+            'mirasoles-navy-dark': '#101B31',
+            'mirasoles-wa': '#25D366',
+            'mirasoles-wa-dark': '#15803D',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="bg-gray-100 text-mirasoles-navy font-sans antialiased min-h-screen relative">
+
+  <!-- MODAL DE AUTENTICACIÓN / LOGIN CMS -->
+  <div id="admin-login-modal" class="fixed inset-0 z-50 bg-mirasoles-navy/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl border border-gray-200 max-w-md w-full p-8 text-center space-y-6 animate-fadeIn">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-mirasoles-gold to-amber-200 flex items-center justify-center mx-auto shadow-md text-white font-serif font-black text-2xl">
+        M
+      </div>
+      <div>
+        <h2 class="text-2xl font-serif font-bold text-mirasoles-navy">Panel CMS Mirasoles</h2>
+        <p class="text-xs text-gray-500 mt-1">Ingresá la contraseña de administración para editar contenidos, fotos y tarifas.</p>
+      </div>
+
+      <form id="admin-login-form" class="space-y-4 text-left">
+        <div>
+          <label for="admin-password" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">Contraseña</label>
+          <input type="password" id="admin-password" required placeholder="Clave por defecto: mirasoles2026" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
+        </div>
+        <p id="admin-login-error" class="text-xs text-red-600 font-semibold hidden"></p>
+        <button type="submit" class="btn-navy w-full py-3 rounded-xl text-sm font-bold shadow-md">
+          Ingresar al Panel
+        </button>
+      </form>
+
+      <div class="pt-4 border-t border-gray-100 text-[11px] text-gray-400">
+        Hotel Mirasoles · Necochea, Buenos Aires<br>
+        <a href="/" class="text-mirasoles-gold hover:underline font-semibold mt-1 inline-block">← Volver al sitio público</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD PRINCIPAL CMS -->
+  <div id="admin-dashboard" class="blur-sm pointer-events-none transition-all duration-300 min-h-screen flex flex-col">
+    
+    <!-- Barra Superior Dashboard -->
+    <header class="bg-mirasoles-navy text-white px-6 py-4 flex items-center justify-between shadow-md">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-mirasoles-gold flex items-center justify-center font-serif font-bold text-white text-lg">M</div>
+        <div>
+          <h1 class="text-lg font-serif font-bold tracking-tight">CMS Hotel Mirasoles</h1>
+          <p class="text-[11px] text-amber-200">Panel de Control en Vivo · Necochea</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="/" target="_blank" class="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold tracking-wide transition flex items-center gap-1.5">
+          <span>Ver Sitio Web</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+        <button id="admin-logout-btn" class="px-3 py-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 text-red-200 text-xs font-bold transition">
+          Cerrar Sesión
+        </button>
+      </div>
+    </header>
+
+    <!-- Contenedor con Tabs Laterales/Superiores -->
+    <div class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Navegación de Pestañas (Sidebar) -->
+      <aside class="lg:col-span-3 bg-white rounded-2xl shadow-sm border border-gray-200 p-3 space-y-1">
+        <div class="px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-400">Secciones del Sitio</div>
+        <button type="button" data-admin-tab="general" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-mirasoles-gold text-mirasoles-gold bg-amber-50/50 active">
+          🏨 General & Contacto
+        </button>
+        <button type="button" data-admin-tab="hero" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          🌅 Portada & Hero
+        </button>
+        <button type="button" data-admin-tab="rooms" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          🛏️ Habitaciones & Tarifas
+        </button>
+        <button type="button" data-admin-tab="services" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          🥐 Servicios & Desayuno
+        </button>
+        <button type="button" data-admin-tab="promo" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          📣 Aviso Promocional
+        </button>
+        <button type="button" data-admin-tab="faqs" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          ❓ Preguntas Frecuentes
+        </button>
+
+        <div class="px-3 pt-4 pb-2 text-xs font-bold uppercase tracking-wider text-gray-400 border-t border-gray-100 mt-2">Configuración</div>
+        <button type="button" data-admin-tab="security" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          🔐 Seguridad & Clave
+        </button>
+        <button type="button" data-admin-tab="backups" class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-bold transition border-l-4 border-transparent text-gray-500 hover:text-mirasoles-navy hover:bg-gray-50">
+          💾 Respaldos JSON
+        </button>
+      </aside>
+
+      <!-- Paneles de Edición -->
+      <main class="lg:col-span-9 space-y-6">
+
+        <!-- TAB 1: GENERAL & CONTACTO -->
+        <section id="tab-general" class="admin-tab-panel bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200">
+          <div class="border-b border-gray-100 pb-4 mb-6">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Información General & Datos de Contacto</h3>
+            <p class="text-xs text-gray-500 mt-1">Estos datos se sincronizan automáticamente en el encabezado, pie de página y botones de reserva.</p>
+          </div>
+
+          <form id="form-admin-general" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Nombre Oficial del Hotel</label>
+                <input type="text" id="cfg-hotel-name" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-mirasoles-gold focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Eslogan / Subtítulo</label>
+                <input type="text" id="cfg-hotel-tagline" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-mirasoles-gold focus:outline-none">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Descripción Institucional</label>
+              <textarea id="cfg-hotel-desc" rows="3" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-mirasoles-gold focus:outline-none"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Horario Check-in</label>
+                <input type="text" id="cfg-hotel-checkin" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Horario Check-out</label>
+                <input type="text" id="cfg-hotel-checkout" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Horario Desayuno</label>
+                <input type="text" id="cfg-hotel-breakfast-hours" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+            </div>
+
+            <div class="border-t border-gray-100 pt-4">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-mirasoles-gold-dark mb-4">Canales de Comunicación Oficial</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-gray-700 mb-1">WhatsApp API (Solo números con código de país)</label>
+                  <input type="text" id="cfg-contact-whatsapp-number" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl font-mono">
+                  <span class="text-[11px] text-gray-400">Oficial: 5492262324248</span>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-gray-700 mb-1">WhatsApp Visualización (Texto mostrado)</label>
+                  <input type="text" id="cfg-contact-whatsapp-display" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-gray-700 mb-1">Email Oficial de Reservas</label>
+                  <input type="email" id="cfg-contact-email" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-gray-700 mb-1">Teléfono Fijo / Alternativo</label>
+                  <input type="text" id="cfg-contact-phone" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-100 pt-4">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-mirasoles-gold-dark mb-4">Ubicación & Dirección</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-gray-700 mb-1">Dirección Completa</label>
+                  <input type="text" id="cfg-hotel-address" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-gray-700 mb-1">URL Google Maps (Embed iFrame)</label>
+                  <input type="text" id="cfg-hotel-mapurl" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl font-mono text-xs">
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100 flex justify-end">
+              <button type="submit" class="btn-navy px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow">
+                Guardar Información General
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- TAB 2: PORTADA & HERO -->
+        <section id="tab-hero" class="admin-tab-panel bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200 hidden">
+          <div class="border-b border-gray-100 pb-4 mb-6">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Página de Inicio & Portada (Hero)</h3>
+            <p class="text-xs text-gray-500 mt-1">Modificá el título principal, la imagen de portada y los destacados de la landing page.</p>
+          </div>
+
+          <form id="form-admin-hero" class="space-y-5">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Badge Superior</label>
+              <input type="text" id="cfg-hero-badge" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Título Principal (H1)</label>
+              <input type="text" id="cfg-hero-title" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl font-serif">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Subtítulo / Bajada</label>
+              <textarea id="cfg-hero-subtitle" rows="3" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">URL Imagen de Portada (Hero Background)</label>
+              <input type="text" id="cfg-hero-image" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl font-mono text-xs">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Insignia Destacada 1</label>
+                <input type="text" id="cfg-hero-hl1" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Insignia Destacada 2</label>
+                <input type="text" id="cfg-hero-hl2" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Insignia Destacada 3</label>
+                <input type="text" id="cfg-hero-hl3" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100 flex justify-end">
+              <button type="submit" class="btn-navy px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow">
+                Guardar Portada
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- TAB 3: HABITACIONES -->
+        <section id="tab-rooms" class="admin-tab-panel space-y-6 hidden">
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Gestión de Habitaciones & Galerías</h3>
+            <p class="text-xs text-gray-500 mt-1">Editá nombres, tarifas de referencia, capacidades, camas y fotos de cada categoría.</p>
+          </div>
+          <div id="admin-rooms-list" class="space-y-6">
+            <!-- Renderizado dinámico desde admin.js -->
+          </div>
+        </section>
+
+        <!-- TAB 4: SERVICIOS -->
+        <section id="tab-services" class="admin-tab-panel space-y-6 hidden">
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Servicios & Desayuno Buffet</h3>
+            <p class="text-xs text-gray-500 mt-1">Modificá descripciones de desayuno, cocheras, Wi-Fi y conserjería 24 hs.</p>
+          </div>
+          <div id="admin-services-list" class="space-y-4">
+            <!-- Renderizado dinámico desde admin.js -->
+          </div>
+        </section>
+
+        <!-- TAB 5: AVISO PROMOCIONAL -->
+        <section id="tab-promo" class="admin-tab-panel bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200 hidden">
+          <div class="border-b border-gray-100 pb-4 mb-6">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Barra Superior Promocional</h3>
+            <p class="text-xs text-gray-500 mt-1">Activá o desactivá el banner superior que aparece en todas las páginas del sitio web.</p>
+          </div>
+
+          <form id="form-admin-promo" class="space-y-5">
+            <div class="flex items-center gap-3 p-4 bg-amber-50 rounded-xl border border-amber-200">
+              <input type="checkbox" id="cfg-promo-active" class="w-5 h-5 text-mirasoles-gold rounded border-gray-300 focus:ring-mirasoles-gold">
+              <label for="cfg-promo-active" class="text-sm font-bold text-mirasoles-navy cursor-pointer">
+                Mostrar barra de aviso promocional en la parte superior
+              </label>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Texto del Aviso</label>
+              <textarea id="cfg-promo-text" rows="2" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Texto del Botón</label>
+                <input type="text" id="cfg-promo-btn" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-700 mb-1">Enlace del Botón (URL o wa.me)</label>
+                <input type="text" id="cfg-promo-link" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl font-mono text-xs">
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100 flex justify-end">
+              <button type="submit" class="btn-navy px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow">
+                Guardar Aviso
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- TAB 6: PREGUNTAS FRECUENTES (FAQ) -->
+        <section id="tab-faqs" class="admin-tab-panel space-y-6 hidden">
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Preguntas Frecuentes (FAQ)</h3>
+              <p class="text-xs text-gray-500 mt-1">Administrá las dudas frecuentes que ven los huéspedes en la página principal.</p>
+            </div>
+            <button type="button" id="btn-add-faq" class="btn-gold px-4 py-2 rounded-xl text-xs font-bold shadow">
+              + Agregar Pregunta
+            </button>
+          </div>
+          <div id="admin-faqs-list" class="space-y-4">
+            <!-- Renderizado dinámico desde admin.js -->
+          </div>
+        </section>
+
+        <!-- TAB 7: SEGURIDAD & CONTRASEÑA -->
+        <section id="tab-security" class="admin-tab-panel bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200 hidden">
+          <div class="border-b border-gray-100 pb-4 mb-6">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Seguridad del Panel CMS</h3>
+            <p class="text-xs text-gray-500 mt-1">Cambiá la clave de acceso al panel de administración. Clave actual por defecto: <strong>mirasoles2026</strong>.</p>
+          </div>
+
+          <form id="form-admin-security" class="space-y-5 max-w-md">
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Nueva Contraseña</label>
+              <input type="password" id="cfg-new-password" required minlength="6" placeholder="Mínimo 6 caracteres" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-mirasoles-gold">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-700 mb-1">Confirmar Nueva Contraseña</label>
+              <input type="password" id="cfg-confirm-password" required minlength="6" class="w-full px-3.5 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-mirasoles-gold">
+            </div>
+
+            <button type="submit" class="btn-navy px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider shadow">
+              Actualizar Contraseña
+            </button>
+          </form>
+        </section>
+
+        <!-- TAB 8: RESPALDOS JSON -->
+        <section id="tab-backups" class="admin-tab-panel bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200 hidden">
+          <div class="border-b border-gray-100 pb-4 mb-6">
+            <h3 class="text-xl font-serif font-bold text-mirasoles-navy">Copia de Seguridad & Restauración (JSON)</h3>
+            <p class="text-xs text-gray-500 mt-1">Exportá todos los datos en un archivo JSON portátil o restaurá una copia previa.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Exportar -->
+            <div class="p-6 rounded-2xl bg-amber-50/60 border border-amber-200/80 flex flex-col justify-between">
+              <div>
+                <h4 class="font-serif font-bold text-lg text-mirasoles-navy">Descargar Respaldo</h4>
+                <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                  Genera una copia en archivo <code>.json</code> con todos los textos, habitaciones, tarifas y configuraciones vigentes.
+                </p>
+              </div>
+              <button type="button" id="btn-admin-export-json" class="btn-gold mt-6 py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <span>Descargar Backup JSON</span>
+              </button>
+            </div>
+
+            <!-- Importar -->
+            <div class="p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between">
+              <div>
+                <h4 class="font-serif font-bold text-lg text-mirasoles-navy">Restaurar Copia</h4>
+                <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                  Subí un archivo <code>mirasoles-contenido.json</code> previamente exportado para restaurar los datos en este navegador.
+                </p>
+              </div>
+              <div class="mt-6">
+                <input type="file" id="input-admin-import-json" accept=".json" class="text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-mirasoles-navy file:text-white hover:file:bg-mirasoles-navy-dark cursor-pointer">
+              </div>
+            </div>
+          </div>
+
+          <!-- Reset a valores iniciales -->
+          <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h5 class="text-xs font-bold text-red-600 uppercase tracking-wider">Zona de Reinicio</h5>
+              <p class="text-xs text-gray-500">Restablece todos los datos a la configuración original oficial de fábrica.</p>
+            </div>
+            <button type="button" id="btn-admin-reset-default" class="px-4 py-2 rounded-xl text-xs font-bold bg-red-100 text-red-700 hover:bg-red-200 transition">
+              Restablecer Valores de Fábrica
+            </button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="/assets/js/default-content.js"></script>
+  <script src="/assets/js/content-manager.js"></script>
+  <script src="/assets/js/admin.js"></script>
+</body>
+</html>

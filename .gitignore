@@ -1,0 +1,12 @@
+# Dependencias
+node_modules/
+
+# Entorno de despliegue Vercel
+.vercel
+
+# Logs y temporales
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
