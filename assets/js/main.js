@@ -1,6 +1,6 @@
 /**
  * MAIN JAVASCRIPT - HOTEL MIRASOLES (NECOCHEA)
- * Interacciones generales de UI, Navegación, Calculadora de Estadía y Filtros
+ * Interacciones generales de UI, Navegación, Calculadora de Estadía, Prefill de Fechas y Botón WhatsApp Flotante
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupRoomFilters();
   setupReservationForm();
   setupFAQAccordion();
+  setupFloatingWhatsApp();
 });
 
 /**
@@ -32,7 +33,6 @@ function setupMobileMenu() {
       });
     }
 
-    // Cerrar al clickear cualquier link del menú
     menu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.add('hidden');
@@ -71,7 +71,6 @@ function setupRoomFilters() {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Activar estilo botón
       filterBtns.forEach(b => {
         b.classList.remove('bg-mirasoles-gold', 'text-white', 'shadow-sm');
         b.classList.add('bg-white', 'text-mirasoles-navy', 'hover:bg-mirasoles-sand');
@@ -105,6 +104,7 @@ function setupRoomFilters() {
 
 /**
  * Calculadora de Noches y Envío a WhatsApp (reservas.html)
+ * Soporta precarga automática desde query params de index.html (?in=...&out=...&guests=...)
  */
 function setupReservationForm() {
   const form = document.getElementById('reserva-cotizador-form');
@@ -116,25 +116,52 @@ function setupReservationForm() {
   const adultsSelect = document.getElementById('res-adults');
   const childrenSelect = document.getElementById('res-children');
   const nightsDisplay = document.getElementById('res-nights-display');
-  const summaryBox = document.getElementById('res-summary-box');
   const guestNameInput = document.getElementById('res-name');
   const commentsInput = document.getElementById('res-comments');
   const parkingCheckbox = document.getElementById('res-parking');
+
+  // Leer posibles parámetros de URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramIn = urlParams.get('in');
+  const paramOut = urlParams.get('out');
+  const paramGuests = urlParams.get('guests');
 
   // Configurar fecha mínima hoy
   const today = new Date().toISOString().split('T')[0];
   if (checkinInput) {
     checkinInput.min = today;
-    // Por defecto mañana
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const dayAfter = new Date();
-    dayAfter.setDate(dayAfter.getDate() + 4);
+    
+    // Si viene por parámetro URL válido usarlo, sino mañana
+    if (paramIn && paramIn >= today) {
+      checkinInput.value = paramIn;
+    } else {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      checkinInput.value = tomorrow.toISOString().split('T')[0];
+    }
 
-    checkinInput.value = tomorrow.toISOString().split('T')[0];
     if (checkoutInput) {
-      checkoutInput.min = tomorrow.toISOString().split('T')[0];
-      checkoutInput.value = dayAfter.toISOString().split('T')[0];
+      checkoutInput.min = checkinInput.value;
+      if (paramOut && paramOut > checkinInput.value) {
+        checkoutInput.value = paramOut;
+      } else {
+        const nextDay = new Date(checkinInput.value);
+        nextDay.setDate(nextDay.getDate() + 3);
+        checkoutInput.value = nextDay.toISOString().split('T')[0];
+      }
+    }
+  }
+
+  // Precarga de huéspedes si viene por URL
+  if (paramGuests && adultsSelect) {
+    const guestsNum = parseInt(paramGuests, 10);
+    if (guestsNum >= 1 && guestsNum <= 5) {
+      adultsSelect.value = String(guestsNum);
+    }
+    if (roomSelect) {
+      if (guestsNum === 2) roomSelect.value = 'matrimonial';
+      else if (guestsNum === 3) roomSelect.value = 'triple';
+      else if (guestsNum >= 4) roomSelect.value = 'familiar';
     }
   }
 
@@ -199,7 +226,6 @@ function setupReservationForm() {
     const requiresParking = parkingCheckbox && parkingCheckbox.checked ? 'Sí, solicito cochera' : 'No requiero cochera';
     const comments = commentsInput?.value ? commentsInput.value.trim() : 'Sin comentarios adicionales';
 
-    // Formatear fechas en formato DD/MM/AAAA
     const formatDate = (isoStr) => {
       if (!isoStr) return '';
       const [y, m, d] = isoStr.split('-');
@@ -239,7 +265,6 @@ function setupFAQAccordion() {
     if (btn && answer) {
       btn.addEventListener('click', () => {
         const isOpen = !answer.classList.contains('hidden');
-        // Cerrar todos los demás
         faqItems.forEach(other => {
           other.querySelector('.faq-answer')?.classList.add('hidden');
           other.querySelector('.faq-icon')?.classList.remove('rotate-180');
@@ -252,4 +277,35 @@ function setupFAQAccordion() {
       });
     }
   });
+}
+
+/**
+ * Botón Flotante de WhatsApp para Todas las Páginas
+ */
+function setupFloatingWhatsApp() {
+  // No mostrar en la pantalla de administración
+  if (window.location.pathname.includes('/admin')) return;
+  if (document.getElementById('mirasoles-wa-float')) return;
+
+  const content = (typeof getHotelContent === 'function') ? getHotelContent() : {};
+  const waNumber = content.contact?.whatsappNumber || '5492262324248';
+  const defaultText = encodeURIComponent('Hola Hotel Mirasoles, me comunico desde el sitio web para consultar por disponibilidad y tarifas.');
+  const waUrl = `https://wa.me/${waNumber}?text=${defaultText}`;
+
+  const container = document.createElement('div');
+  container.id = 'mirasoles-wa-float';
+  container.className = 'fixed bottom-6 right-6 z-40 flex items-center gap-3 select-none group';
+  container.innerHTML = `
+    <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md text-mirasoles-navy px-4 py-2 rounded-full shadow-xl border border-gray-200 text-xs font-bold hover:text-mirasoles-wa transition transform hover:-translate-x-1">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+      <span class="w-2 h-2 rounded-full bg-emerald-500 -ml-4"></span>
+      <span>¿Dudas o reservas? Escribinos</span>
+    </a>
+    <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-600 to-green-500 text-white flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition transform duration-200" aria-label="Escribinos por WhatsApp a Recepción">
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.54 2.012.827 3.064.827 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.411-.452-4.887-1.258l-5.113 1.34 1.365-4.992c-.895-1.536-1.365-3.29-1.365-5.09 0-5.518 4.482-10 10-10s10 4.482 10 10z"/>
+      </svg>
+    </a>
+  `;
+  document.body.appendChild(container);
 }

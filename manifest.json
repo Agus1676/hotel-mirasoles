@@ -1,0 +1,11 @@
+{
+  "name": "Hotel Mirasoles · Necochea",
+  "short_name": "Mirasoles",
+  "description": "Hotel Mirasoles en Necochea, Costa Atlántica. Desayuno buffet continental artesanal incluido, cocheras, Wi-Fi libre y atención 24 hs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#1B2A4A",
+  "orientation": "portrait-primary",
+  "lang": "es-AR"
+}
