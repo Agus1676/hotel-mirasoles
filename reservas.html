@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cotizador & Reservas Online · Hotel Mirasoles (Necochea)</title>
   <meta name="description" content="Calculá tu estadía en Hotel Mirasoles y enviá tu consulta directa a recepción por WhatsApp con cálculo en vivo de noches y desayuno buffet incluido.">
-  <meta name="theme-color" content="#0F1A2C">
+  <meta name="theme-color" content="#0C1A30">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23B88E3E%22/><text y=%2268%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2255%22 fill=%22white%22>M</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23C28E34%22/><text y=%2268%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-weight=%22bold%22 font-size=%2255%22 fill=%22white%22>M</text></svg>">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -16,21 +16,19 @@
         extend: {
           colors: {
             mirasoles: {
-              sand: '#FAF7F2',
-              card: '#F4EFEB',
-              stone: '#E8E1D5',
-              gold: '#B88E3E',
-              'gold-light': '#D6AB5C',
-              'gold-subtle': '#F5EFE4',
-              navy: '#0F1A2C',
-              'navy-light': '#1C2C45',
-              dark: '#080E17',
-              wa: '#128C7E',
+              navy: '#0C1A30',
+              'navy-dark': '#07101E',
+              'navy-light': '#162B4D',
+              gold: '#C28E34',
+              'gold-hover': '#AA7924',
+              'gold-soft': '#FBF4E8',
+              canvas: '#F8F9FA',
+              stone: '#F1EFEA',
             }
           },
           fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"Outfit"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
           }
         }
       }
@@ -38,84 +36,84 @@
   </script>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body class="bg-mirasoles-sand text-mirasoles-navy font-sans antialiased flex flex-col min-h-screen mobile-safe-bottom">
+<body class="bg-mirasoles-canvas text-slate-800 font-sans antialiased flex flex-col min-h-screen mobile-safe-bottom">
 
-  <!-- AVISO PROMOCIONAL -->
-  <div data-cms-promo class="bg-mirasoles-navy text-mirasoles-sand text-xs py-2.5 px-4 text-center border-b border-mirasoles-gold/20 font-light tracking-wide">
+  <!-- AVISO PROMOCIONAL SUPERIOR -->
+  <div data-cms-promo class="bg-mirasoles-navy-dark text-amber-200 text-xs py-2.5 px-4 text-center font-medium border-b border-amber-500/20">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
-      <span data-cms-promo-text>Viví Necochea con 15% OFF en estadías de 5 o más noches · Desayuno Buffet continental incluido.</span>
-      <a data-cms-promo-btn href="https://wa.me/5492262324248" class="text-mirasoles-gold hover:text-white underline underline-offset-4 font-normal text-xs ml-2 transition">
-        Consultar disponibilidad &rarr;
+      <span data-cms-promo-text>Viví Necochea con 15% OFF en estadías de 5+ noches · Desayuno Buffet continental incluido todos los días.</span>
+      <a data-cms-promo-btn href="https://wa.me/5492262324248" class="text-white bg-mirasoles-gold hover:bg-mirasoles-gold-hover px-3 py-0.5 rounded-full text-[11px] font-bold transition ml-2 shadow-sm">
+        Reservar por WhatsApp &rarr;
       </a>
     </div>
   </div>
 
-  <!-- NAVBAR -->
-  <nav id="main-navbar" class="sticky top-0 z-50 bg-mirasoles-sand/95 backdrop-blur-md border-b border-mirasoles-navy/5 py-4 transition-all duration-300">
+  <!-- NAVBAR PRINCIPAL -->
+  <nav id="main-navbar" class="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300 py-3.5">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <a href="/" class="group flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full border border-mirasoles-gold/40 flex items-center justify-center font-serif text-mirasoles-gold font-normal text-lg group-hover:bg-mirasoles-gold group-hover:text-white transition duration-300">
+        <div class="w-10 h-10 rounded-xl bg-mirasoles-navy text-mirasoles-gold flex items-center justify-center font-serif text-xl font-bold shadow group-hover:bg-mirasoles-gold group-hover:text-white transition duration-300">
           M
         </div>
         <div class="flex flex-col">
-          <span class="font-serif text-2xl tracking-[0.08em] font-normal uppercase text-mirasoles-navy" data-cms="hotel.name">Mirasoles</span>
-          <span class="text-[9px] tracking-[0.3em] uppercase text-stone-400 font-medium">Hotel · Necochea</span>
+          <span class="font-serif text-2xl font-bold tracking-tight text-mirasoles-navy group-hover:text-mirasoles-gold transition" data-cms="hotel.name">Hotel Mirasoles</span>
+          <span class="text-[10px] tracking-widest uppercase font-bold text-slate-500">Necochea · Costa Atlántica</span>
         </div>
       </a>
 
-      <div class="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.18em] font-medium text-stone-600">
-        <a href="/" class="hover:text-mirasoles-gold transition">Inicio</a>
-        <a href="/habitaciones" class="hover:text-mirasoles-gold transition">Habitaciones</a>
-        <a href="/servicios" class="hover:text-mirasoles-gold transition">Servicios & Desayuno</a>
-        <a href="/reservas" class="text-mirasoles-gold transition">Cotizador</a>
-        <a href="/admin" class="hover:text-mirasoles-navy text-stone-400 transition text-[10px]">Admin CMS</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+        <a href="/" class="hover:text-mirasoles-navy transition">Inicio</a>
+        <a href="/habitaciones" class="hover:text-mirasoles-navy transition">Habitaciones & Tarifas</a>
+        <a href="/servicios" class="hover:text-mirasoles-navy transition">Servicios & Desayuno</a>
+        <a href="/reservas" class="text-mirasoles-gold font-bold transition">Cotizador Online</a>
+        <a href="/admin" class="hover:text-mirasoles-navy text-slate-400 transition text-xs flex items-center gap-1">Admin CMS</a>
       </div>
 
-      <div class="hidden sm:flex items-center gap-4">
-        <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-editorial-dark">
+      <div class="hidden sm:flex items-center gap-3">
+        <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-gold">
           <span>WhatsApp Directo</span>
         </a>
       </div>
 
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-mirasoles-navy focus:outline-none" aria-label="Abrir menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9h16.5m-16.5 6.75h16.5"/></svg>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-800 hover:bg-slate-100 rounded-lg transition" aria-label="Abrir menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
   </nav>
 
   <!-- MENÚ MÓVIL DRAWER -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 bg-mirasoles-navy text-mirasoles-sand hidden flex-col justify-between p-8">
-    <div class="flex items-center justify-between border-b border-white/10 pb-6">
-      <div class="flex flex-col">
-        <span class="font-serif text-2xl tracking-widest uppercase">Mirasoles</span>
-        <span class="text-[9px] tracking-[0.3em] uppercase text-mirasoles-gold">Hotel · Necochea</span>
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-mirasoles-navy text-white hidden flex-col justify-between p-8">
+    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-mirasoles-gold text-white flex items-center justify-center font-serif font-bold text-lg">M</div>
+        <span class="font-serif text-xl font-bold">Hotel Mirasoles</span>
       </div>
-      <button id="mobile-menu-close" class="p-2 text-white/70 hover:text-white" aria-label="Cerrar">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      <button id="mobile-menu-close" class="p-2 text-white/80 hover:text-white" aria-label="Cerrar">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
     </div>
-    <div class="flex flex-col gap-6 py-10 font-serif text-3xl font-light tracking-wide">
-      <a href="/" class="hover:text-mirasoles-gold transition">01. Inicio</a>
-      <a href="/habitaciones" class="hover:text-mirasoles-gold transition">02. Habitaciones & Suites</a>
-      <a href="/servicios" class="hover:text-mirasoles-gold transition">03. Servicios & Desayuno</a>
-      <a href="/reservas" class="text-mirasoles-gold transition">04. Cotizador Online</a>
-      <a href="/admin" class="hover:text-mirasoles-gold transition text-sm font-sans tracking-widest uppercase text-stone-400 pt-4">Acceso CMS</a>
+    <div class="flex flex-col gap-6 font-serif text-2xl font-bold py-8">
+      <a href="/" class="hover:text-amber-300 transition">Inicio</a>
+      <a href="/habitaciones" class="hover:text-amber-300 transition">Habitaciones & Tarifas</a>
+      <a href="/servicios" class="hover:text-amber-300 transition">Servicios & Desayuno</a>
+      <a href="/reservas" class="text-amber-300">Cotizador Online</a>
+      <a href="/admin" class="hover:text-amber-300 transition text-sm font-sans font-normal text-slate-400 pt-4">Panel CMS</a>
     </div>
-    <div class="border-t border-white/10 pt-6 space-y-3">
-      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-editorial-gold w-full text-center">
-        Escribir a Recepción por WhatsApp
+    <div class="border-t border-white/10 pt-4 space-y-3">
+      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-wa-solid w-full text-center">
+        Escribinos por WhatsApp
       </a>
-      <p class="text-[11px] tracking-wider uppercase text-center text-stone-400">Check-in: 14:00 hs · Check-out: 10:00 hs</p>
+      <p class="text-xs text-center text-slate-400">Check-in: 14:00 hs · Check-out: 10:00 hs</p>
     </div>
   </div>
 
-  <!-- ENCABEZADO EDITORIAL -->
-  <header class="py-12 md:py-16 border-b border-stone-200/60 bg-white">
+  <!-- ENCABEZADO DE SECCIÓN -->
+  <header class="py-12 md:py-16 bg-white border-b border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center space-y-3">
-      <span class="text-[10px] tracking-[0.25em] uppercase text-mirasoles-gold font-semibold block">Consulta Directa</span>
-      <h1 class="text-3xl sm:text-5xl font-serif font-light text-mirasoles-navy">Cotizá tu Estadía</h1>
-      <p class="text-stone-500 text-xs sm:text-sm font-light max-w-lg mx-auto leading-relaxed">
-        Ingresá las fechas de tu viaje. El sistema calculará la duración y generará un mensaje formal para que recepción te confirme disponibilidad y tarifa en el acto.
+      <span class="text-xs uppercase tracking-widest text-mirasoles-gold font-bold block">Consulta Inmediata</span>
+      <h1 class="text-3xl sm:text-5xl font-serif font-bold text-mirasoles-navy">Cotizá tu Estadía en Necochea</h1>
+      <p class="text-slate-600 text-sm max-w-lg mx-auto leading-relaxed">
+        Ingresá las fechas deseadas. El sistema calculará la duración en vivo y armará tu solicitud con todos los detalles para enviarla directo a la Recepción del hotel.
       </p>
     </div>
   </header>
@@ -124,17 +122,17 @@
   <main class="py-14 md:py-20 flex-1">
     <div class="max-w-3xl mx-auto px-6">
       
-      <div class="bg-white rounded-3xl border border-stone-200 shadow-subtle overflow-hidden">
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
         
         <!-- Header del Formulario -->
         <div class="bg-mirasoles-navy text-white p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span class="text-[10px] tracking-widest uppercase text-mirasoles-gold block font-semibold">Reserva Directa sin comisiones</span>
-            <h2 class="font-serif text-2xl font-normal text-white mt-1">Planificador de Estadía</h2>
+            <span class="text-xs uppercase tracking-wider text-amber-300 font-bold block">Reserva Directa sin Intermediarios</span>
+            <h2 class="font-serif text-2xl font-bold text-white mt-1">Buscador de Disponibilidad</h2>
           </div>
           <div class="text-left sm:text-right">
-            <span class="text-[10px] tracking-widest uppercase text-stone-400 block font-medium">Desayuno Continental</span>
-            <span class="text-xs text-emerald-400 font-medium">100% Incluido en la tarifa</span>
+            <span class="text-[11px] uppercase tracking-wider text-slate-400 block font-semibold">Desayuno Continental</span>
+            <span class="text-xs text-emerald-400 font-bold">100% Incluido</span>
           </div>
         </div>
 
@@ -143,35 +141,35 @@
           <!-- FILA 1: FECHAS -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label for="res-checkin" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
-                Fecha de Ingreso (Check-in 14:00 hs)
+              <label for="res-checkin" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Fecha de Ingreso (Check-in 14:00 hs) <span class="text-red-500">*</span>
               </label>
-              <input type="date" id="res-checkin" required class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold">
+              <input type="date" id="res-checkin" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
             </div>
             <div>
-              <label for="res-checkout" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
-                Fecha de Egreso (Check-out 10:00 hs)
+              <label for="res-checkout" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Fecha de Egreso (Check-out 10:00 hs) <span class="text-red-500">*</span>
               </label>
-              <input type="date" id="res-checkout" required class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold">
+              <input type="date" id="res-checkout" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
             </div>
           </div>
 
           <!-- INDICADOR DINÁMICO DE NOCHES -->
-          <div class="p-4 rounded-xl bg-mirasoles-sand/80 border border-stone-200 flex items-center justify-between">
+          <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-between">
             <div class="space-y-0.5">
-              <span class="text-[10px] uppercase tracking-wider text-stone-400 font-medium block">Duración de la estadía:</span>
-              <p id="res-nights-display" class="font-serif text-xl text-mirasoles-navy font-normal">Calculando noches...</p>
+              <span class="text-[10px] uppercase tracking-wider text-slate-500 font-bold block">Duración de la estadía:</span>
+              <p id="res-nights-display" class="font-serif text-xl font-bold text-mirasoles-navy">Calculando noches...</p>
             </div>
-            <span class="text-[10px] tracking-wider uppercase text-mirasoles-gold font-semibold hidden sm:inline-block">Tarifas promocionales por 5+ noches</span>
+            <span class="text-xs font-bold text-amber-800 hidden sm:inline-block">Tarifas promocionales por 5+ noches</span>
           </div>
 
           <!-- FILA 2: HABITACIÓN & PASAJEROS -->
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="sm:col-span-1">
-              <label for="res-room" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
-                Categoría de Interés
+              <label for="res-room" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Categoría de Interés <span class="text-red-500">*</span>
               </label>
-              <select id="res-room" class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold">
+              <select id="res-room" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
                 <option value="matrimonial">Doble Matrimonial (King)</option>
                 <option value="twin">Doble Twin (2 Camas)</option>
                 <option value="triple">Triple Superior (3 Pasajeros)</option>
@@ -180,10 +178,10 @@
               </select>
             </div>
             <div>
-              <label for="res-adults" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
-                Adultos
+              <label for="res-adults" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Adultos <span class="text-red-500">*</span>
               </label>
-              <select id="res-adults" class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold">
+              <select id="res-adults" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
                 <option value="1">1 Adulto</option>
                 <option value="2" selected>2 Adultos</option>
                 <option value="3">3 Adultos</option>
@@ -192,10 +190,10 @@
               </select>
             </div>
             <div>
-              <label for="res-children" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
+              <label for="res-children" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                 Menores de 12 años
               </label>
-              <select id="res-children" class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold">
+              <select id="res-children" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
                 <option value="0" selected>Sin menores</option>
                 <option value="1">1 menor</option>
                 <option value="2">2 menores</option>
@@ -207,17 +205,17 @@
           <!-- FILA 3: DATOS HUÉSPED & COCHERA -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
-              <label for="res-name" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
-                Nombre y Apellido del Titular
+              <label for="res-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Nombre y Apellido del Titular <span class="text-red-500">*</span>
               </label>
-              <input type="text" id="res-name" required placeholder="Ej: Carolina Rossi" class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold">
+              <input type="text" id="res-name" required placeholder="Ej: Carolina Rossi" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold">
             </div>
             <div class="flex items-center pt-6">
               <label class="relative flex items-center gap-3 cursor-pointer select-none">
-                <input type="checkbox" id="res-parking" class="w-4 h-4 text-mirasoles-gold rounded border-stone-300 focus:ring-mirasoles-gold">
+                <input type="checkbox" id="res-parking" class="w-5 h-5 text-mirasoles-gold rounded border-slate-300 focus:ring-mirasoles-gold">
                 <div>
-                  <span class="text-xs font-semibold text-mirasoles-navy block">Solicito espacio de Cochera</span>
-                  <span class="text-[10px] text-stone-400">Espacio en el predio cubierto o semicubierto (sujeto a cupo)</span>
+                  <span class="text-sm font-bold text-slate-900 block">Solicito espacio de Cochera</span>
+                  <span class="text-xs text-slate-500">Cochera cubierta o semicubierta en el predio (sujeta a cupo)</span>
                 </div>
               </label>
             </div>
@@ -225,20 +223,20 @@
 
           <!-- FILA 4: COMENTARIOS -->
           <div>
-            <label for="res-comments" class="block text-[11px] uppercase tracking-wider text-stone-600 font-semibold mb-2">
-              Observaciones o requerimientos (Opcional)
+            <label for="res-comments" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+              Observaciones o requerimientos especiales (Opcional)
             </label>
-            <textarea id="res-comments" rows="3" placeholder="Ej: Arribo estimado después de las 18 hs, practicuna para bebé, opciones celíacas, etc." class="w-full bg-mirasoles-sand/50 border border-stone-200 rounded-xl px-4 py-3 text-sm text-mirasoles-navy focus:outline-none focus:border-mirasoles-gold"></textarea>
+            <textarea id="res-comments" rows="3" placeholder="Ej: Llegaremos después de las 18 hs, practicuna para bebé, opciones celíacas sin TACC, etc." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-mirasoles-gold"></textarea>
           </div>
 
           <!-- BOTÓN DE ENVÍO -->
-          <div class="pt-6 border-t border-stone-100 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="text-[11px] text-stone-400 space-y-1">
-              <p>Atención directa por Recepción de Hotel Mirasoles.</p>
+          <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-xs text-slate-500 space-y-1">
+              <p class="font-bold text-mirasoles-navy">Atención directa por Recepción de Hotel Mirasoles.</p>
               <p>WhatsApp Oficial: <strong>+54 9 2262 32-4248</strong> (Necochea)</p>
             </div>
 
-            <button type="submit" class="btn-editorial-gold w-full sm:w-auto">
+            <button type="submit" class="btn-wa-solid w-full sm:w-auto text-sm py-4 px-8 shadow-xl">
               <span>Enviar Consulta a Recepción por WhatsApp</span>
             </button>
           </div>
@@ -251,10 +249,10 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-mirasoles-navy text-mirasoles-sand pt-14 pb-10">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+  <footer class="bg-mirasoles-navy-dark text-slate-300 pt-12 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
       <div class="flex items-center gap-3">
-        <span class="font-serif text-xl tracking-widest uppercase text-white">Hotel Mirasoles</span>
+        <span class="font-serif text-xl font-bold text-white">Hotel Mirasoles</span>
         <span>· Necochea, Buenos Aires</span>
       </div>
       <div class="flex items-center gap-6">
@@ -268,14 +266,14 @@
   </footer>
 
   <!-- MOBILE BOTTOM STICKY BAR -->
-  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 px-4 py-3 flex items-center justify-between shadow-2xl">
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-4 py-3 flex items-center justify-between shadow-2xl">
     <div class="flex flex-col">
-      <span class="font-serif text-sm font-normal text-mirasoles-navy">Hotel Mirasoles</span>
-      <span class="text-[10px] text-stone-500 font-light">Recepción 24 hs</span>
+      <span class="font-serif text-sm font-bold text-mirasoles-navy">Hotel Mirasoles</span>
+      <span class="text-[10px] text-slate-500 font-semibold">Recepción 24 hs</span>
     </div>
     <div class="flex items-center gap-2">
-      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="px-4 py-2 rounded-full bg-mirasoles-navy text-white text-[11px] font-medium tracking-wide uppercase transition flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.54 2.012.827 3.064.827 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.411-.452-4.887-1.258l-5.113 1.34 1.365-4.992c-.895-1.536-1.365-3.29-1.365-5.09 0-5.518 4.482-10 10-10s10 4.482 10 10z"/></svg>
+      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.54 2.012.827 3.064.827 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.411-.452-4.887-1.258l-5.113 1.34 1.365-4.992c-.895-1.536-1.365-3.29-1.365-5.09 0-5.518 4.482-10 10-10s10 4.482 10 10z"/></svg>
         <span>Consultar WhatsApp</span>
       </a>
     </div>

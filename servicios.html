@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios & Desayuno Buffet · Hotel Mirasoles (Necochea)</title>
   <meta name="description" content="Servicios exclusivos de Hotel Mirasoles en Necochea: Desayuno buffet continental artesanal incluido, cocheras cubiertas, Wi-Fi fibra óptica y recepción 24 hs.">
-  <meta name="theme-color" content="#0F1A2C">
+  <meta name="theme-color" content="#0C1A30">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23B88E3E%22/><text y=%2268%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2255%22 fill=%22white%22>M</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23C28E34%22/><text y=%2268%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-weight=%22bold%22 font-size=%2255%22 fill=%22white%22>M</text></svg>">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -16,21 +16,19 @@
         extend: {
           colors: {
             mirasoles: {
-              sand: '#FAF7F2',
-              card: '#F4EFEB',
-              stone: '#E8E1D5',
-              gold: '#B88E3E',
-              'gold-light': '#D6AB5C',
-              'gold-subtle': '#F5EFE4',
-              navy: '#0F1A2C',
-              'navy-light': '#1C2C45',
-              dark: '#080E17',
-              wa: '#128C7E',
+              navy: '#0C1A30',
+              'navy-dark': '#07101E',
+              'navy-light': '#162B4D',
+              gold: '#C28E34',
+              'gold-hover': '#AA7924',
+              'gold-soft': '#FBF4E8',
+              canvas: '#F8F9FA',
+              stone: '#F1EFEA',
             }
           },
           fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"Outfit"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
           }
         }
       }
@@ -38,103 +36,103 @@
   </script>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body class="bg-mirasoles-sand text-mirasoles-navy font-sans antialiased flex flex-col min-h-screen mobile-safe-bottom">
+<body class="bg-mirasoles-canvas text-slate-800 font-sans antialiased flex flex-col min-h-screen mobile-safe-bottom">
 
-  <!-- AVISO PROMOCIONAL -->
-  <div data-cms-promo class="bg-mirasoles-navy text-mirasoles-sand text-xs py-2.5 px-4 text-center border-b border-mirasoles-gold/20 font-light tracking-wide">
+  <!-- AVISO PROMOCIONAL SUPERIOR -->
+  <div data-cms-promo class="bg-mirasoles-navy-dark text-amber-200 text-xs py-2.5 px-4 text-center font-medium border-b border-amber-500/20">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
-      <span data-cms-promo-text>Viví Necochea con 15% OFF en estadías de 5 o más noches · Desayuno Buffet continental incluido.</span>
-      <a data-cms-promo-btn href="https://wa.me/5492262324248" class="text-mirasoles-gold hover:text-white underline underline-offset-4 font-normal text-xs ml-2 transition">
-        Consultar disponibilidad &rarr;
+      <span data-cms-promo-text>Viví Necochea con 15% OFF en estadías de 5+ noches · Desayuno Buffet continental incluido todos los días.</span>
+      <a data-cms-promo-btn href="https://wa.me/5492262324248" class="text-white bg-mirasoles-gold hover:bg-mirasoles-gold-hover px-3 py-0.5 rounded-full text-[11px] font-bold transition ml-2 shadow-sm">
+        Reservar por WhatsApp &rarr;
       </a>
     </div>
   </div>
 
-  <!-- NAVBAR -->
-  <nav id="main-navbar" class="sticky top-0 z-50 bg-mirasoles-sand/95 backdrop-blur-md border-b border-mirasoles-navy/5 py-4 transition-all duration-300">
+  <!-- NAVBAR PRINCIPAL -->
+  <nav id="main-navbar" class="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300 py-3.5">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <a href="/" class="group flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full border border-mirasoles-gold/40 flex items-center justify-center font-serif text-mirasoles-gold font-normal text-lg group-hover:bg-mirasoles-gold group-hover:text-white transition duration-300">
+        <div class="w-10 h-10 rounded-xl bg-mirasoles-navy text-mirasoles-gold flex items-center justify-center font-serif text-xl font-bold shadow group-hover:bg-mirasoles-gold group-hover:text-white transition duration-300">
           M
         </div>
         <div class="flex flex-col">
-          <span class="font-serif text-2xl tracking-[0.08em] font-normal uppercase text-mirasoles-navy" data-cms="hotel.name">Mirasoles</span>
-          <span class="text-[9px] tracking-[0.3em] uppercase text-stone-400 font-medium">Hotel · Necochea</span>
+          <span class="font-serif text-2xl font-bold tracking-tight text-mirasoles-navy group-hover:text-mirasoles-gold transition" data-cms="hotel.name">Hotel Mirasoles</span>
+          <span class="text-[10px] tracking-widest uppercase font-bold text-slate-500">Necochea · Costa Atlántica</span>
         </div>
       </a>
 
-      <div class="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.18em] font-medium text-stone-600">
-        <a href="/" class="hover:text-mirasoles-gold transition">Inicio</a>
-        <a href="/habitaciones" class="hover:text-mirasoles-gold transition">Habitaciones</a>
-        <a href="/servicios" class="text-mirasoles-gold transition">Servicios & Desayuno</a>
-        <a href="/reservas" class="hover:text-mirasoles-gold transition">Cotizador</a>
-        <a href="/admin" class="hover:text-mirasoles-navy text-stone-400 transition text-[10px]">Admin CMS</a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+        <a href="/" class="hover:text-mirasoles-navy transition">Inicio</a>
+        <a href="/habitaciones" class="hover:text-mirasoles-navy transition">Habitaciones & Tarifas</a>
+        <a href="/servicios" class="text-mirasoles-gold font-bold transition">Servicios & Desayuno</a>
+        <a href="/reservas" class="hover:text-mirasoles-navy transition">Cotizador Online</a>
+        <a href="/admin" class="hover:text-mirasoles-navy text-slate-400 transition text-xs flex items-center gap-1">Admin CMS</a>
       </div>
 
-      <div class="hidden sm:flex items-center gap-4">
-        <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-editorial-dark">
+      <div class="hidden sm:flex items-center gap-3">
+        <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-gold">
           <span>Consultar Estadía</span>
         </a>
       </div>
 
-      <button id="mobile-menu-btn" class="md:hidden p-2 text-mirasoles-navy focus:outline-none" aria-label="Abrir menú">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 9h16.5m-16.5 6.75h16.5"/></svg>
+      <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-800 hover:bg-slate-100 rounded-lg transition" aria-label="Abrir menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
   </nav>
 
   <!-- MENÚ MÓVIL DRAWER -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 bg-mirasoles-navy text-mirasoles-sand hidden flex-col justify-between p-8">
-    <div class="flex items-center justify-between border-b border-white/10 pb-6">
-      <div class="flex flex-col">
-        <span class="font-serif text-2xl tracking-widest uppercase">Mirasoles</span>
-        <span class="text-[9px] tracking-[0.3em] uppercase text-mirasoles-gold">Hotel · Necochea</span>
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-mirasoles-navy text-white hidden flex-col justify-between p-8">
+    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-mirasoles-gold text-white flex items-center justify-center font-serif font-bold text-lg">M</div>
+        <span class="font-serif text-xl font-bold">Hotel Mirasoles</span>
       </div>
-      <button id="mobile-menu-close" class="p-2 text-white/70 hover:text-white" aria-label="Cerrar">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      <button id="mobile-menu-close" class="p-2 text-white/80 hover:text-white" aria-label="Cerrar">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
     </div>
-    <div class="flex flex-col gap-6 py-10 font-serif text-3xl font-light tracking-wide">
-      <a href="/" class="hover:text-mirasoles-gold transition">01. Inicio</a>
-      <a href="/habitaciones" class="hover:text-mirasoles-gold transition">02. Habitaciones & Suites</a>
-      <a href="/servicios" class="text-mirasoles-gold transition">03. Servicios & Desayuno</a>
-      <a href="/reservas" class="hover:text-mirasoles-gold transition">04. Cotizador Online</a>
-      <a href="/admin" class="hover:text-mirasoles-gold transition text-sm font-sans tracking-widest uppercase text-stone-400 pt-4">Acceso CMS</a>
+    <div class="flex flex-col gap-6 font-serif text-2xl font-bold py-8">
+      <a href="/" class="hover:text-amber-300 transition">Inicio</a>
+      <a href="/habitaciones" class="hover:text-amber-300 transition">Habitaciones & Tarifas</a>
+      <a href="/servicios" class="text-amber-300">Servicios & Desayuno</a>
+      <a href="/reservas" class="hover:text-amber-300 transition">Cotizador Online</a>
+      <a href="/admin" class="hover:text-amber-300 transition text-sm font-sans font-normal text-slate-400 pt-4">Panel CMS</a>
     </div>
-    <div class="border-t border-white/10 pt-6 space-y-3">
-      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-editorial-gold w-full text-center">
-        Escribir a Recepción por WhatsApp
+    <div class="border-t border-white/10 pt-4 space-y-3">
+      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="btn-wa-solid w-full text-center">
+        Escribinos por WhatsApp
       </a>
-      <p class="text-[11px] tracking-wider uppercase text-center text-stone-400">Check-in: 14:00 hs · Check-out: 10:00 hs</p>
+      <p class="text-xs text-center text-slate-400">Check-in: 14:00 hs · Check-out: 10:00 hs</p>
     </div>
   </div>
 
-  <!-- ENCABEZADO EDITORIAL -->
-  <header class="py-14 md:py-20 border-b border-stone-200/60 bg-white">
+  <!-- ENCABEZADO DE SECCIÓN -->
+  <header class="py-14 md:py-16 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6 text-center space-y-4">
-      <span class="text-[10px] tracking-[0.25em] uppercase text-mirasoles-gold font-semibold block">Hospitalidad & Comodidades</span>
-      <h1 class="text-4xl sm:text-6xl font-serif font-light text-mirasoles-navy">Servicios & Desayuno Buffet</h1>
-      <p class="text-stone-500 text-sm font-light max-w-xl mx-auto leading-relaxed">
+      <span class="text-xs uppercase tracking-widest text-mirasoles-gold font-bold block">Confort & Bienestar</span>
+      <h1 class="text-4xl sm:text-5xl font-serif font-bold text-mirasoles-navy">Servicios & Desayuno Buffet</h1>
+      <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
         Todo dispuesto para que tus días de descanso en Necochea transcurran con serenidad, confort y excelente atención personalizada.
       </p>
 
       <!-- Ficha de Horarios Oficiales Destacada -->
       <div class="pt-6 max-w-3xl mx-auto">
-        <div class="bg-mirasoles-sand p-6 rounded-2xl border border-stone-200 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div class="border-b sm:border-b-0 sm:border-r border-stone-200 pb-4 sm:pb-0">
-            <span class="text-[10px] uppercase tracking-wider text-stone-400 block font-semibold">Horario de Ingreso</span>
-            <p class="font-serif text-2xl text-mirasoles-navy mt-1">14:00 hs</p>
-            <span class="text-[10px] text-stone-500 font-light">Check-in oficial</span>
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center shadow-sm">
+          <div class="border-b sm:border-b-0 sm:border-r border-slate-200 pb-4 sm:pb-0">
+            <span class="text-[11px] uppercase tracking-wider text-slate-500 block font-bold">Horario de Ingreso</span>
+            <p class="font-serif text-2xl text-mirasoles-navy font-bold mt-1">14:00 hs</p>
+            <span class="text-xs text-slate-500">Check-in oficial</span>
           </div>
-          <div class="border-b sm:border-b-0 sm:border-r border-stone-200 pb-4 sm:pb-0">
-            <span class="text-[10px] uppercase tracking-wider text-stone-400 block font-semibold">Horario de Egreso</span>
-            <p class="font-serif text-2xl text-mirasoles-navy mt-1">10:00 hs</p>
-            <span class="text-[10px] text-stone-500 font-light">Check-out oficial</span>
+          <div class="border-b sm:border-b-0 sm:border-r border-slate-200 pb-4 sm:pb-0">
+            <span class="text-[11px] uppercase tracking-wider text-slate-500 block font-bold">Horario de Egreso</span>
+            <p class="font-serif text-2xl text-mirasoles-navy font-bold mt-1">10:00 hs</p>
+            <span class="text-xs text-slate-500">Check-out oficial</span>
           </div>
           <div>
-            <span class="text-[10px] uppercase tracking-wider text-stone-400 block font-semibold">Desayuno Continental</span>
-            <p class="font-serif text-2xl text-mirasoles-gold mt-1">07:30 a 10:30 hs</p>
-            <span class="text-[10px] text-stone-500 font-light">Buffet incluido</span>
+            <span class="text-[11px] uppercase tracking-wider text-slate-500 block font-bold">Desayuno Continental</span>
+            <p class="font-serif text-2xl text-emerald-700 font-bold mt-1">07:30 a 10:30 hs</p>
+            <span class="text-xs text-emerald-600 font-bold">Buffet 100% Incluido</span>
           </div>
         </div>
       </div>
@@ -142,37 +140,37 @@
   </header>
 
   <!-- DESGLOSE DESAYUNO BUFFET -->
-  <section class="py-16 md:py-24 bg-white border-b border-stone-200/60">
+  <section class="py-16 md:py-24 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div class="lg:col-span-6 space-y-6">
-          <span class="text-[10px] tracking-[0.25em] uppercase text-mirasoles-gold font-semibold block">Gastronomía Matutina</span>
-          <h2 class="text-3xl sm:text-5xl font-serif font-light text-mirasoles-navy leading-tight">
-            El aroma de las medialunas <em class="italic">recién horneadas</em>.
+          <span class="text-xs uppercase tracking-widest text-mirasoles-gold font-bold block">Gastronomía Matutina</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-mirasoles-navy leading-tight">
+            El aroma de las medialunas recién horneadas todos los días
           </h2>
-          <p class="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
-            Nuestro desayuno buffet continental se sirve a diario en el salón bañado por la luz del sol. Pensado para recargar energías antes de una caminata hacia las playas doradas de Necochea o un recorrido por el bosque.
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Nuestro desayuno buffet continental se sirve a diario en el salón bañado por la luz del sol. Pensado para recargar energías antes de una caminata hacia las playas doradas de Necochea o un recorrido por el bosque del Parque Miguel Lillo.
           </p>
 
           <div class="space-y-4 pt-2">
-            <div class="p-4 rounded-xl bg-mirasoles-sand/60 border border-stone-200/80 space-y-1">
-              <h4 class="font-serif text-lg text-mirasoles-navy font-normal">Pastelería & Medialunas Artesanales</h4>
-              <p class="text-xs text-stone-500 font-light leading-relaxed">Medialunas de manteca y de grasa elaboradas en el hotel, tostadas con dulces regionales, budines caseros y cereales.</p>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <h4 class="font-bold text-mirasoles-navy text-sm">🥐 Pastelería & Medialunas Artesanales</h4>
+              <p class="text-xs text-slate-600">Medialunas de manteca y de grasa elaboradas en el hotel, tostadas con dulces regionales, budines caseros y cereales.</p>
             </div>
-            <div class="p-4 rounded-xl bg-mirasoles-sand/60 border border-stone-200/80 space-y-1">
-              <h4 class="font-serif text-lg text-mirasoles-navy font-normal">Cafetería de Grano & Jugos</h4>
-              <p class="text-xs text-stone-500 font-light leading-relaxed">Café espresso de molienda en el acto, café con leche, infusiones seleccionadas y jugos cítricos exprimidos.</p>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <h4 class="font-bold text-mirasoles-navy text-sm">☕ Cafetería de Grano & Jugos</h4>
+              <p class="text-xs text-slate-600">Café espresso de molienda en el acto, café con leche, infusiones seleccionadas y jugos cítricos exprimidos.</p>
             </div>
-            <div class="p-4 rounded-xl bg-mirasoles-sand/60 border border-stone-200/80 space-y-1">
-              <h4 class="font-serif text-lg text-mirasoles-navy font-normal">Rincón Exclusivo Celíacos (Sin TACC)</h4>
-              <p class="text-xs text-stone-500 font-light leading-relaxed">Productos certificados sin gluten, envasados y manipulados con vajilla especial para resguardar la seguridad de nuestros huéspedes.</p>
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
+              <h4 class="font-bold text-mirasoles-navy text-sm">🌾 Rincón Exclusivo Celíacos (Sin TACC)</h4>
+              <p class="text-xs text-slate-600">Productos certificados sin gluten, envasados y manipulados con vajilla especial para resguardar la seguridad de nuestros huéspedes.</p>
             </div>
           </div>
         </div>
 
         <div class="lg:col-span-6">
-          <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-subtle">
+          <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-slate-200">
             <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=1200&q=80" alt="Desayuno Buffet Hotel Mirasoles" class="w-full h-full object-cover">
           </div>
         </div>
@@ -182,122 +180,68 @@
   </section>
 
   <!-- GRILLA DE SERVICIOS -->
-  <main class="py-16 md:py-24 bg-mirasoles-sand flex-1">
+  <main class="py-16 md:py-24 bg-slate-50 flex-1">
     <div class="max-w-7xl mx-auto px-6">
       
       <div class="text-center mb-16 space-y-2">
-        <span class="text-[10px] tracking-[0.25em] uppercase text-mirasoles-gold font-semibold block">Comodidades Integrales</span>
-        <h2 class="text-3xl sm:text-4xl font-serif font-light text-mirasoles-navy">Instalaciones & Asistencia</h2>
-        <p class="text-stone-500 text-xs sm:text-sm font-light">Servicios pensados para tu bienestar absoluto.</p>
+        <span class="text-xs uppercase tracking-widest text-mirasoles-gold font-bold block">Comodidades Integrales</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-mirasoles-navy">Instalaciones & Asistencia</h2>
+        <p class="text-slate-600 text-sm">Servicios pensados para tu bienestar absoluto.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Servicio 1: Cocheras -->
-        <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-subtle flex flex-col justify-between">
+        <div class="card-mirasoles p-6 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="aspect-video rounded-xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80" alt="Cocheras" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=600&q=80" alt="Cocheras Propias" class="w-full h-full object-cover">
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-mirasoles-gold block">En el predio</span>
-            <h3 class="font-serif text-2xl text-mirasoles-navy font-normal">Cocheras Propias</h3>
-            <p class="text-xs text-stone-500 font-light leading-relaxed">
+            <span class="text-[11px] uppercase tracking-wider font-bold text-mirasoles-gold block">En el predio</span>
+            <h3 class="font-serif text-2xl font-bold text-mirasoles-navy">Cocheras Propias</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Estacionamiento cubierto y semicubierto con portón automatizado. La seguridad de tu vehículo está garantizada durante toda tu estadía.
             </p>
           </div>
-          <div class="pt-4 mt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
-            <span>Acceso automatizado</span>
-            <span class="text-mirasoles-navy font-medium">Reserva previa</span>
+          <div class="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Cupos limitados</span>
+            <span class="text-mirasoles-navy font-bold">Reserva previa</span>
           </div>
         </div>
 
         <!-- Servicio 2: Wi-Fi -->
-        <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-subtle flex flex-col justify-between">
+        <div class="card-mirasoles p-6 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="aspect-video rounded-xl overflow-hidden">
               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Wi-Fi" class="w-full h-full object-cover">
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-emerald-600 block">100% Libre</span>
-            <h3 class="font-serif text-2xl text-mirasoles-navy font-normal">Wi-Fi Fibra Óptica</h3>
-            <p class="text-xs text-stone-500 font-light leading-relaxed">
-              Conexión simétrica de alta velocidad distribuida mediante puntos de acceso en habitaciones, lobby y desayunador, apta para videollamadas y streaming.
+            <span class="text-[11px] uppercase tracking-wider font-bold text-emerald-600 block">100% Libre</span>
+            <h3 class="font-serif text-2xl font-bold text-mirasoles-navy">Wi-Fi Fibra Óptica</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Conexión simétrica de alta velocidad distribuida mediante puntos de acceso en habitaciones, lobby y desayunador.
             </p>
           </div>
-          <div class="pt-4 mt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
-            <span>Banda ancha simétrica</span>
-            <span class="text-emerald-700 font-medium">Gratuito</span>
+          <div class="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Banda ancha simétrica</span>
+            <span class="text-emerald-700 font-bold">Gratuito</span>
           </div>
         </div>
 
         <!-- Servicio 3: Recepción -->
-        <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-subtle flex flex-col justify-between">
+        <div class="card-mirasoles p-6 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="aspect-video rounded-xl overflow-hidden">
               <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Recepción 24 horas" class="w-full h-full object-cover">
             </div>
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-mirasoles-gold block">24 Horas Activa</span>
-            <h3 class="font-serif text-2xl text-mirasoles-navy font-normal">Conserjería & Recepción</h3>
-            <p class="text-xs text-stone-500 font-light leading-relaxed">
+            <span class="text-[11px] uppercase tracking-wider font-bold text-mirasoles-gold block">24 Horas Activa</span>
+            <h3 class="font-serif text-2xl font-bold text-mirasoles-navy">Conserjería & Recepción</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
               Equipo de recepción dedicado a tu cuidado las 24 horas. Custodia gratuita de valijas antes del check-in o tras el check-out, y recarga de agua caliente.
             </p>
           </div>
-          <div class="pt-4 mt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
-            <span>Check-in 14 hs / Out 10 hs</span>
-            <span class="text-mirasoles-navy font-medium">24/7 Disponible</span>
-          </div>
-        </div>
-
-        <!-- Servicio 4: Mucama -->
-        <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-subtle flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="aspect-video rounded-xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80" alt="Mucama" class="w-full h-full object-cover">
-            </div>
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-mirasoles-gold block">Diario</span>
-            <h3 class="font-serif text-2xl text-mirasoles-navy font-normal">Mucama & Ropa Blanca</h3>
-            <p class="text-xs text-stone-500 font-light leading-relaxed">
-              Limpieza minuciosa diaria, ventilación de ambientes y recambio de sábanas de percal de algodón y toallas suaves de puro algodón.
-            </p>
-          </div>
-          <div class="pt-4 mt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
-            <span>Blanquería de algodón</span>
-            <span class="text-emerald-700 font-medium">Incluido</span>
-          </div>
-        </div>
-
-        <!-- Servicio 5: Guía Local -->
-        <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-subtle flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="aspect-video rounded-xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Turismo Necochea" class="w-full h-full object-cover">
-            </div>
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-mirasoles-gold block">Recomendaciones</span>
-            <h3 class="font-serif text-2xl text-mirasoles-navy font-normal">Asesoramiento Turístico</h3>
-            <p class="text-xs text-stone-500 font-light leading-relaxed">
-              Te orientamos para descubrir los mejores atractivos: las dunas del Médano Blanco, senderos del Parque Miguel Lillo y restaurantes de mar en Puerto Quequén.
-            </p>
-          </div>
-          <div class="pt-4 mt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
-            <span>Convenios con balnearios</span>
-            <span class="text-mirasoles-navy font-medium">Asesoramiento</span>
-          </div>
-        </div>
-
-        <!-- Servicio 6: Salón & Relax -->
-        <div class="bg-white rounded-2xl p-6 border border-stone-200 shadow-subtle flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="aspect-video rounded-xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Lobby" class="w-full h-full object-cover">
-            </div>
-            <span class="text-[10px] tracking-widest uppercase font-semibold text-mirasoles-gold block">Espacio Común</span>
-            <h3 class="font-serif text-2xl text-mirasoles-navy font-normal">Lobby & Sala de Estar</h3>
-            <p class="text-xs text-stone-500 font-light leading-relaxed">
-              Un espacio sereno para compartir un mate tras la playa, leer o conversar con otros viajeros en un clima distendido y familiar.
-            </p>
-          </div>
-          <div class="pt-4 mt-6 border-t border-stone-100 flex items-center justify-between text-xs text-stone-400">
-            <span>Ambiente climatizado</span>
-            <span class="text-mirasoles-navy font-medium">Abierto</span>
+          <div class="pt-4 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="text-slate-500">Check-in 14 hs / Out 10 hs</span>
+            <span class="text-mirasoles-navy font-bold">24 Horas</span>
           </div>
         </div>
 
@@ -306,10 +250,10 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-mirasoles-navy text-mirasoles-sand pt-14 pb-10">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+  <footer class="bg-mirasoles-navy-dark text-slate-300 pt-12 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
       <div class="flex items-center gap-3">
-        <span class="font-serif text-xl tracking-widest uppercase text-white">Hotel Mirasoles</span>
+        <span class="font-serif text-xl font-bold text-white">Hotel Mirasoles</span>
         <span>· Necochea, Buenos Aires</span>
       </div>
       <div class="flex items-center gap-6">
@@ -323,17 +267,17 @@
   </footer>
 
   <!-- MOBILE BOTTOM STICKY BAR -->
-  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 px-4 py-3 flex items-center justify-between shadow-2xl">
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-slate-200 px-4 py-3 flex items-center justify-between shadow-2xl">
     <div class="flex flex-col">
-      <span class="font-serif text-sm font-normal text-mirasoles-navy">Servicios</span>
-      <span class="text-[10px] text-stone-500 font-light">Desayuno buffet incluido</span>
+      <span class="font-serif text-sm font-bold text-mirasoles-navy">Servicios</span>
+      <span class="text-[10px] text-slate-500 font-semibold">Desayuno buffet incluido</span>
     </div>
     <div class="flex items-center gap-2">
-      <a href="/reservas" class="px-4 py-2 rounded-full bg-stone-100 hover:bg-stone-200 text-mirasoles-navy text-[11px] font-medium tracking-wide uppercase transition">
+      <a href="/reservas" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">
         Cotizar
       </a>
-      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="px-4 py-2 rounded-full bg-mirasoles-navy text-white text-[11px] font-medium tracking-wide uppercase transition flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.54 2.012.827 3.064.827 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.411-.452-4.887-1.258l-5.113 1.34 1.365-4.992c-.895-1.536-1.365-3.29-1.365-5.09 0-5.518 4.482-10 10-10s10 4.482 10 10z"/></svg>
+      <a data-cms-whatsapp href="https://wa.me/5492262324248" class="px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-md">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.54 2.012.827 3.064.827 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.518-4.482 10-10 10-1.748 0-3.411-.452-4.887-1.258l-5.113 1.34 1.365-4.992c-.895-1.536-1.365-3.29-1.365-5.09 0-5.518 4.482-10 10-10s10 4.482 10 10z"/></svg>
         <span>WhatsApp</span>
       </a>
     </div>
