@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Habitaciones & Tarifas · Hotel Mirasoles (Necochea)</title>
   <meta name="description" content="Conocé las habitaciones de Hotel Mirasoles en Necochea: Dobles, Triples y Suites Familiares con sommiers, Smart TV, aire acondicionado y desayuno buffet continental.">
-  <meta name="theme-color" content="#0C1A30">
+  <meta name="theme-color" content="#0F1E36">
   <link rel="manifest" href="/manifest.json">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23C28E34%22/><text y=%2268%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-weight=%22bold%22 font-size=%2255%22 fill=%22white%22>M</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23C58B38%22/><text y=%2268%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-weight=%22bold%22 font-size=%2255%22 fill=%22white%22>M</text></svg>">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -16,19 +16,21 @@
         extend: {
           colors: {
             mirasoles: {
-              navy: '#0C1A30',
-              'navy-dark': '#07101E',
-              'navy-light': '#162B4D',
-              gold: '#C28E34',
-              'gold-hover': '#AA7924',
-              'gold-soft': '#FBF4E8',
-              canvas: '#F8F9FA',
-              stone: '#F1EFEA',
+              navy: '#0F1E36',
+              'navy-dark': '#070E1A',
+              'navy-mid': '#1A3054',
+              gold: '#C58B38',
+              'gold-hover': '#AA7328',
+              'gold-light': '#FDF6E9',
+              emerald: '#059669',
+              canvas: '#F8FAFC',
+              stone: '#F1F5F9',
             }
           },
           fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            serif: ['"DM Serif Display"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
           }
         }
       }
@@ -39,31 +41,31 @@
 <body class="bg-mirasoles-canvas text-slate-800 font-sans antialiased flex flex-col min-h-screen mobile-safe-bottom">
 
   <!-- AVISO PROMOCIONAL SUPERIOR -->
-  <div data-cms-promo class="bg-mirasoles-navy-dark text-amber-200 text-xs py-2.5 px-4 text-center font-medium border-b border-amber-500/20">
+  <div data-cms-promo class="bg-mirasoles-navy-dark text-amber-200 text-xs py-2 px-4 text-center font-medium border-b border-amber-500/20">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2">
-      <span data-cms-promo-text>Viví Necochea con 15% OFF en estadías de 5+ noches · Desayuno Buffet continental incluido todos los días.</span>
-      <a data-cms-promo-btn href="https://wa.me/5492262324248" class="text-white bg-mirasoles-gold hover:bg-mirasoles-gold-hover px-3 py-0.5 rounded-full text-[11px] font-bold transition ml-2 shadow-sm">
-        Reservar por WhatsApp &rarr;
+      <span data-cms-promo-text class="tracking-wide">✨ ¡Temporada en Necochea! Reservá directo por WhatsApp y asegurá 15% OFF en estadías de 5+ noches con Desayuno Buffet incluido.</span>
+      <a data-cms-promo-btn href="https://wa.me/5492262324248" class="text-white bg-mirasoles-gold hover:bg-mirasoles-gold-hover px-3 py-0.5 rounded-full text-[11px] font-bold transition ml-2 shadow-sm inline-flex items-center gap-1">
+        <span>Reservar</span> &rarr;
       </a>
     </div>
   </div>
 
   <!-- NAVBAR PRINCIPAL -->
-  <nav id="main-navbar" class="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300 py-3.5">
+  <nav id="main-navbar" class="sticky top-0 z-50 bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300 py-3">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
       <a href="/" class="group flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-mirasoles-navy text-mirasoles-gold flex items-center justify-center font-serif text-xl font-bold shadow group-hover:bg-mirasoles-gold group-hover:text-white transition duration-300">
+        <div class="w-10 h-10 rounded-xl bg-mirasoles-navy text-mirasoles-gold flex items-center justify-center font-serif text-2xl font-bold shadow-sm group-hover:bg-mirasoles-gold group-hover:text-white transition duration-300">
           M
         </div>
         <div class="flex flex-col">
-          <span class="font-serif text-2xl font-bold tracking-tight text-mirasoles-navy group-hover:text-mirasoles-gold transition" data-cms="hotel.name">Hotel Mirasoles</span>
+          <span class="font-serif text-2xl font-bold tracking-tight text-mirasoles-navy group-hover:text-amber-700 transition" data-cms="hotel.name">Hotel Mirasoles</span>
           <span class="text-[10px] tracking-widest uppercase font-bold text-slate-500">Necochea · Costa Atlántica</span>
         </div>
       </a>
 
       <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
         <a href="/" class="hover:text-mirasoles-navy transition">Inicio</a>
-        <a href="/habitaciones" class="text-mirasoles-gold font-bold transition">Habitaciones & Tarifas</a>
+        <a href="/habitaciones" class="text-amber-700 font-bold transition">Habitaciones & Tarifas</a>
         <a href="/servicios" class="hover:text-mirasoles-navy transition">Servicios & Desayuno</a>
         <a href="/reservas" class="hover:text-mirasoles-navy transition">Cotizador Online</a>
         <a href="/admin" class="hover:text-mirasoles-navy text-slate-400 transition text-xs flex items-center gap-1">Admin CMS</a>
@@ -107,27 +109,27 @@
     </div>
   </div>
 
-  <!-- ENCABEZADO DE SECCIÓN -->
-  <header class="py-14 md:py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-6 text-center space-y-3">
-      <span class="text-xs uppercase tracking-widest text-mirasoles-gold font-bold block">Catálogo Oficial</span>
-      <h1 class="text-4xl sm:text-5xl font-serif font-bold text-mirasoles-navy">Habitaciones & Suites</h1>
-      <p class="text-slate-600 text-sm max-w-xl mx-auto leading-relaxed">
-        Descanso pleno a metros del mar. Todas las opciones incluyen Desayuno Buffet continental libre, servicio diario de mucama y Wi-Fi de alta velocidad.
+  <!-- ENCABEZADO DE SECCIÓN CON ALTO CONTRASTE NAVY -->
+  <header class="py-14 md:py-20 bg-mirasoles-navy text-white border-b border-white/10 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 text-center space-y-4 relative z-10">
+      <span class="badge-gold">Catálogo Oficial</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight">Habitaciones & Suites</h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        Descanso pleno a sólo 250 metros del mar en Necochea. Todas las tarifas incluyen Desayuno Buffet continental libre artesanal, servicio diario de mucama y Wi-Fi de alta velocidad.
       </p>
 
       <!-- Filtros de Capacidad -->
       <div class="pt-6 flex flex-wrap items-center justify-center gap-2">
-        <button type="button" data-filter-capacity="all" class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-mirasoles-navy text-white shadow-sm">
+        <button type="button" data-filter-capacity="all" class="px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-mirasoles-gold text-white shadow-md">
           Todas las opciones
         </button>
-        <button type="button" data-filter-capacity="2" class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+        <button type="button" data-filter-capacity="2" class="px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-white/10 hover:bg-white/20 text-white border border-white/10">
           2 Pasajeros (Matrimonial / Twin)
         </button>
-        <button type="button" data-filter-capacity="3" class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+        <button type="button" data-filter-capacity="3" class="px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-white/10 hover:bg-white/20 text-white border border-white/10">
           3 Pasajeros (Triple)
         </button>
-        <button type="button" data-filter-capacity="4+" class="px-5 py-2 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-slate-100 text-slate-700 hover:bg-slate-200">
+        <button type="button" data-filter-capacity="4+" class="px-5 py-2.5 rounded-xl text-xs font-bold tracking-wide uppercase transition bg-white/10 hover:bg-white/20 text-white border border-white/10">
           4 o 5 Pasajeros (Familiar)
         </button>
       </div>
@@ -158,11 +160,11 @@
           <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-wider text-mirasoles-gold">Categoría Parejas</span>
-                <span class="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">Hasta 2 personas</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Categoría Parejas</span>
+                <span class="badge-navy">Hasta 2 personas</span>
               </div>
               <h2 class="text-2xl sm:text-3xl font-serif font-bold text-mirasoles-navy">Doble Matrimonial</h2>
-              <p class="text-xs font-bold text-slate-500">1 Sommier King Size 1.80m · Sábanas de Percal</p>
+              <p class="text-xs font-bold text-amber-700">1 Sommier King Size 1.80m · Sábanas de Percal de Algodón</p>
               <p class="text-slate-600 text-sm leading-relaxed">
                 Espaciosa, luminosa y armoniosa. Diseñada para parejas que buscan descanso pleno con sommier de alta densidad, sábanas de percal de algodón y vista abierta a la brisa costera.
               </p>
@@ -171,7 +173,7 @@
                 <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">Amenidades Incluidas:</span>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Sommier King Size resortes pocket</span></div>
-                  <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Smart TV 43'' con cable digital</span></div>
+                  <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Smart TV 43'' con Flow / cable HD</span></div>
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Aire split frío/calor individual</span></div>
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Baño privado con secador de pelo</span></div>
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Frigobar silencioso</span></div>
@@ -182,7 +184,7 @@
 
             <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno inc.)</span>
+                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno Buffet inc.)</span>
                 <span class="text-2xl font-bold text-mirasoles-navy">Desde $ 58.000</span>
               </div>
               <a href="https://wa.me/5492262324248?text=Hola%20Hotel%20Mirasoles%2C%20quisiera%20consultar%20disponibilidad%20para%20la%20Habitaci%C3%B3n%20Doble%20Matrimonial." target="_blank" class="btn-gold">
@@ -197,27 +199,27 @@
       <article class="room-card card-mirasoles overflow-hidden" data-capacity="2">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
           <div class="lg:col-span-6 p-6 sm:p-8 bg-slate-50 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200">
-            <div class="relative aspect-[16/11] rounded-xl overflow-hidden shadow group cursor-pointer" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80'], 0)">
+            <div class="relative aspect-[16/11] rounded-xl overflow-hidden shadow group cursor-pointer" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'], 0)">
               <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1000&q=80" alt="Habitación Doble Twin" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
               <span class="absolute bottom-3 left-3 bg-mirasoles-navy/90 text-white px-3 py-1 rounded-md text-xs font-bold shadow">
                 Ver 3 fotos &rarr;
               </span>
             </div>
             <div class="grid grid-cols-3 gap-3 mt-4">
-              <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80'], 0)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
-              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80'], 1)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
-              <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80'], 2)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
+              <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'], 0)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
+              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'], 1)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80'], 2)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
             </div>
           </div>
 
           <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-wider text-mirasoles-gold">Categoría Amigos / Colegas</span>
-                <span class="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">Hasta 2 personas</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Categoría Amigos / Colegas</span>
+                <span class="badge-navy">Hasta 2 personas</span>
               </div>
               <h2 class="text-2xl sm:text-3xl font-serif font-bold text-mirasoles-navy">Doble Twin</h2>
-              <p class="text-xs font-bold text-slate-500">2 Camas Individuales Sommier (0.90 x 1.90m)</p>
+              <p class="text-xs font-bold text-amber-700">2 Camas Individuales Sommier (0.90 x 1.90m)</p>
               <p class="text-slate-600 text-sm leading-relaxed">
                 Ideal para amigos, compañeros de viaje o colegas. Disposición funcional con dos sommiers individuales de excelente confort, escritorio de trabajo y abundante luz natural.
               </p>
@@ -226,7 +228,7 @@
                 <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">Amenidades Incluidas:</span>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>2 Sommiers individuales de alta densidad</span></div>
-                  <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Smart TV 32'' con cable digital</span></div>
+                  <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Smart TV con cable</span></div>
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Aire split frío/calor</span></div>
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Baño privado completo con ducha</span></div>
                   <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span>Wi-Fi de alta velocidad</span></div>
@@ -237,7 +239,7 @@
 
             <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno inc.)</span>
+                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno Buffet inc.)</span>
                 <span class="text-2xl font-bold text-mirasoles-navy">Desde $ 55.000</span>
               </div>
               <a href="https://wa.me/5492262324248?text=Hola%20Hotel%20Mirasoles%2C%20quisiera%20consultar%20disponibilidad%20para%20la%20Habitaci%C3%B3n%20Doble%20Twin." target="_blank" class="btn-gold">
@@ -260,19 +262,19 @@
             </div>
             <div class="grid grid-cols-3 gap-3 mt-4">
               <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80'], 0)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
-              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80'], 1)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
-              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80'], 2)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80'], 1)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=70" onclick="openLightbox(['https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80', 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80'], 2)" alt="Miniatura" class="h-20 w-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition border border-slate-200">
             </div>
           </div>
 
           <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-wider text-mirasoles-gold">Categoría Familias / Grupos</span>
-                <span class="text-xs font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">Hasta 3 personas</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Categoría Familias / Grupos</span>
+                <span class="badge-navy">Hasta 3 personas</span>
               </div>
               <h2 class="text-2xl sm:text-3xl font-serif font-bold text-mirasoles-navy">Triple Superior</h2>
-              <p class="text-xs font-bold text-slate-500">1 Sommier Matrimonial + 1 Individual</p>
+              <p class="text-xs font-bold text-amber-700">1 Sommier Matrimonial + 1 Individual</p>
               <p class="text-slate-600 text-sm leading-relaxed">
                 Amplitud y comodidad para familias pequeñas o grupos reducidos. Excelente circulación, placard amplio, escritorio y vistas agradables para una estadía placentera.
               </p>
@@ -292,7 +294,7 @@
 
             <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno inc.)</span>
+                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno Buffet inc.)</span>
                 <span class="text-2xl font-bold text-mirasoles-navy">Desde $ 78.000</span>
               </div>
               <a href="https://wa.me/5492262324248?text=Hola%20Hotel%20Mirasoles%2C%20quisiera%20consultar%20disponibilidad%20para%20la%20Habitaci%C3%B3n%20Triple%20Superior." target="_blank" class="btn-gold">
@@ -323,11 +325,11 @@
           <div class="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div class="space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold uppercase tracking-wider text-mirasoles-gold">Categoría Familiar Suite</span>
-                <span class="text-xs font-bold text-white bg-emerald-700 px-3 py-1 rounded-full">Hasta 4 o 5 personas</span>
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Categoría Familiar Suite</span>
+                <span class="badge-emerald">Hasta 4 o 5 personas</span>
               </div>
               <h2 class="text-2xl sm:text-3xl font-serif font-bold text-mirasoles-navy">Suite Familiar (2 Ambientes)</h2>
-              <p class="text-xs font-bold text-slate-500">Dormitorio Principal + Dormitorio con 3 Camas</p>
+              <p class="text-xs font-bold text-amber-700">Dormitorio Principal + Dormitorio con 3 Camas</p>
               <p class="text-slate-600 text-sm leading-relaxed">
                 La opción predilecta de las familias que visitan Necochea. Dos ambientes independientes conectados, que aseguran la privacidad de los padres y el confort y diversión de los niños.
               </p>
@@ -347,7 +349,7 @@
 
             <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno inc.)</span>
+                <span class="text-[10px] uppercase font-bold text-slate-400 block">Tarifa por noche (Desayuno Buffet inc.)</span>
                 <span class="text-2xl font-bold text-mirasoles-navy">Desde $ 98.000</span>
               </div>
               <a href="https://wa.me/5492262324248?text=Hola%20Hotel%20Mirasoles%2C%20quisiera%20consultar%20disponibilidad%20para%20el%20Departamento%20Familiar%20Suite." target="_blank" class="btn-gold">

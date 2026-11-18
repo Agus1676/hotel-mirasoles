@@ -3,7 +3,7 @@
  * Motor reactivo client-side para sincronización con localStorage y CMS
  */
 
-const STORAGE_KEY = 'mirasoles_hotel_content_v1';
+const STORAGE_KEY = 'mirasoles_hotel_content_v3';
 
 /**
  * Obtener contenido activo desde localStorage o fallback a defaults
